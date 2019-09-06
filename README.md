@@ -1,2 +1,2 @@
-# OnTour-TourismRecommendation
-Code and data for my MSc thesis project.
+# 	On Tour: Harnessing Social Tourism Data for City and Point-of-Interest Recommendation
+Code and data for my MSc thesis project. Work in progress...
