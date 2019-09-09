@@ -6,9 +6,12 @@ The YFCC100M core dataset and Places expansion pack, both available from [here](
 
 ## Required software
 Python 3, with the following libraries in addition to the standard ones:
+* xxx
+* xxx
+* xxx
 
 ## Required folder structure
 
 ## Overview of operation
 
-As-is, the scripts assume the working directory has the following 
+As-is, the scripts assume the working directory has subfolders named `correlations`, `evaluation`, `histories`, `ML`, `photos_by_town`, `POIs_by_town`, `profiles` and `visits_by_town`.
