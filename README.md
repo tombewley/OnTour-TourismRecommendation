@@ -36,7 +36,7 @@ The numbered scripts (`1a`... `12b`) are intended to be run in order; each depen
 
 `7`   Make a profile for each tourist summarising their visit history and category preferences.
 
-`8`   **Run the city recommender.*
+`8`   **Run the city recommender.**
 
 `9`   Compute POI correlation matrices for the *fHist* feature, the most computationally-intensive part of POI recommendation.
 
