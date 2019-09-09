@@ -2,8 +2,6 @@ from tools.POIRecommender import *
 
 import os
 import json
-from keras.models import load_model
-import tensorflow as tf
 from collections import Counter
 import matplotlib.pyplot as plt
 
@@ -20,8 +18,6 @@ weights = np.load('ML/NN_my_alt_3_mr_c.npy')
 nn3Model = NNModel(6, [3], 1, weights = weights, hidden_activation='logistic') 
 weights = np.load('ML/NN_my_alt_6,6_a.npy')
 nn66Model = NNModel(6, [6,6], 1, weights = weights, hidden_activation='logistic') 
-#nnModel = load_model('ML/NN_tf_alt_6_relu_3ep_50sw.h5')
-#nnModel.compile(optimizer=tf.train.AdamOptimizer(), loss='mean_absolute_error', metrics=['mae'])
 
 # Load test set.
 print('Loading data...')
