@@ -5,7 +5,6 @@ from tools.Visualisation import *
 import os
 import csv
 import time
-import mplleaflet
 
 towns = set(os.listdir('photos_by_town')) - set(os.listdir('POIs_by_town')) - {'Tokyo.csv','Taipei_City.csv'}
 #towns = {'Paris.csv'}
@@ -44,7 +43,3 @@ for TOWN in towns:
 		writer = csv.writer(f)
 		for POI in POIs:
 			writer.writerow(POI)
-
-	#fig,ax = plt.subplots()
-	#ax.add_patch(plt.Rectangle((long_min,lat_min),long_max-long_min,lat_max-lat_min))
-	#mplleaflet.show()
