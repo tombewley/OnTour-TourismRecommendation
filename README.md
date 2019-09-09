@@ -5,10 +5,10 @@ In this MSc thesis project, I introduce a variety of data-driven models for reco
 The YFCC100M core dataset and Places expansion pack, both available from [here](https://multimediacommons.wordpress.com/yfcc100m-core-dataset/). They come in the form of Bzip2-compressed files.
 
 ## Required software
-Python 3, with the following libraries in addition to the standard ones: 
+Python 3, with the following libraries in addition to the built-in ones: 
 * BZ2
-* xxx
-* xxx
+* Pandas
+* Overpy
 
 ## Required folder structure
 
