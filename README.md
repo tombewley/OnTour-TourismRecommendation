@@ -26,22 +26,22 @@ The numbered scripts (`1a`... `12b`) are intended to be run in order; each depen
 
 `3`   Perform a second *bootstrapping* pass to label more visits with POIs.    
 
-`4`   x
+`4`   Processed the labelled visits into per-user histories in JSON format.
 
-`5`   x
+`5`   Make a profile for each POI summarising its visit count and times.
 
-`6a`  x
+`6a`  Make a profile for each POI category summarising its visit count and times.
 
-`6b`  x
+`6b`  Make a profile for each city summarising its distribution of visits by category.
 
-`7`   x
+`7`   Make a profile for each tourist summarising their visit history and category preferences.
 
-`8`   x
+`8`   **Run the city recommender.*
 
-`9`   x
+`9`   Compute POI correlation matrices for the *fHist* feature, the most computationally-intensive part of POI recommendation.
 
-`10`  x
+`10`  Create training, validation and test sets for POI recommendation.
 
-`11`  x
+`11`  Train the *Lin* and *NN* POI scoring methods using a learning-to-rank algorithm.
 
-`12`  x
+`12`  **Run the POI recommender on the test set.**
