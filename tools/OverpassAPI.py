@@ -56,39 +56,3 @@ def estimate_POI_category(tags):
 	if 'highway' in tags: return 'highway: '+tags['highway'].replace('_',' ')
 
 	return '*MISSING*'
-
-
-#Leisure, Building
-
-
-# Create a new instance of the Overpass() class. This is used to query the API.
-
-
-'''
-Map queries are easiest in Overpass QL format. https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL
-
-Nodes within bounding box: min lat, min long, max lat, max long.
-node(50.745,7.17,50.75,7.18);out;	
-
-Nodes within bounding box with time and data limit.
-[timeout:900][maxsize:1073741824];node(51.15,7.0,51.35,7.3);out;
-
-Amenities within bounding box.
-(node["amenity"](50.745,7.17,50.75,7.19);way["amenity"](50.745,7.17,50.75,7.19);relation["amenity"](50.745,7.17,50.75,7.19););out;
-
-Pubs (ways) within 1km of a coordinate.
-node(around:1000.0,50.75,6.05)["amenity"="pub"];out;
-
-out center; <--- Gets centrepoints of ways.
-
-'''
-
-# Submit map query to API and get result set.
-#result = api.query('[out:json];way(around:1000.0,51.4568,-2.5975)["amenity"="pub"];out center;')
-
-# Investigate a specific node.
-# Use ITEM.__dir__() to see all methods,
-#for pub in result.ways:
-#	plt.plot(pub.center_lon,pub.center_lat,'k.')
-
-#mplleaflet.show()
