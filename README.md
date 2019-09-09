@@ -4,7 +4,11 @@ In this MSc thesis project, I introduce a variety of data-driven models for reco
 ## Required Data
 The YFCC100M core dataset and Places expansion pack, both available from [here](https://multimediacommons.wordpress.com/yfcc100m-core-dataset/).
 
-## Required Python libraries
+## Required software
+Python 3, with the following libraries in addition to the standard ones:
+- 
+- 
+- 
 
 ## Required folder structure
 
