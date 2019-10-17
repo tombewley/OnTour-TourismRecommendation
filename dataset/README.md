@@ -43,7 +43,7 @@ To view all POI visits by a particular user in a particular city:
 ```python
 dataset['POI_visits']['91244061@N00']['Raleigh']
 
---> [['node/6475583335', '2006-04-07 15:43:57', '2006-04-07 22:58:58', 16], ['node/6475583335', '2006-04-08 10:43:45', '2006-04-08 11:44:22', 4], ['node/6475583335', '2006-04-09 16:31:42', '2006-04-09 16:31:42', 1]]
+RESULT: [['node/6475583335', '2006-04-07 15:43:57', '2006-04-07 22:58:58', 16], ['node/6475583335', '2006-04-08 10:43:45', '2006-04-08 11:44:22', 4], ['node/6475583335', '2006-04-09 16:31:42', '2006-04-09 16:31:42', 1]]
 ```
 
 To view the number of photos taken per city by a particular user:
@@ -51,7 +51,7 @@ To view the number of photos taken per city by a particular user:
 ```python
 dataset['city_photos']['67025584@N00']
 
---> {'Athens': 35, 'Barcelona': 137, 'Berlin': 392, 'Madrid': 11, 'Rome': 14, 'Rotterdam': 29}
+RESULT: {'Athens': 35, 'Barcelona': 137, 'Berlin': 392, 'Madrid': 11, 'Rome': 14, 'Rotterdam': 29}
 ```
 
 To look up the details of the POI associated with a particular visit:
@@ -60,7 +60,7 @@ To look up the details of the POI associated with a particular visit:
 POI, t_start, t_end, n_photos = dataset['POI_visits']['19941037@N00']['Wellington'][0]
 dataset['POI_details'][POI]
 
---> ['New Zealand Academy of Fine Arts', 'gallery', [174.7780104, -41.2847436]]
+RESULT: ['New Zealand Academy of Fine Arts', 'gallery', [174.7780104, -41.2847436]]
 ```
 
 ## Citation
