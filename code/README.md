@@ -45,3 +45,8 @@ The numbered scripts (`1a`... `12b`) are intended to be run in order; each depen
 `11`  Train the *Lin* and *NN* POI scoring methods using a learning-to-rank algorithm.
 
 `12`  **Run the POI recommender on the test set.**
+
+## Citation
+If you use any of the code or data contained in this repository, please cite the following paper:
+
+[COMING SOON]

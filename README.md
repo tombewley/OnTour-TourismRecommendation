@@ -8,4 +8,7 @@ This repository has two folders:
 
 - **dataset**: The travel histories dataset itself, in `JSON` format.
 
-  
+## Citation
+If you use any of the code or data contained in this repository, please cite the following paper:
+
+[COMING SOON]
