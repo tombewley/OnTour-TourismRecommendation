@@ -1,5 +1,5 @@
 # 	On Tour: Travel Histories Dataset
-This folder contains the *On Tour* travel histories dataset, which exists as a single 65MB JSON file with three subschemas: 
+This folder contains the *On Tour* travel histories dataset, which comprises 811,760 POI-level visits and 160,943 city-level visits, made by 64,826 tourists (users of Flickr) across 200 cities worldwide. It exists as a single 65MB JSON file with three subschemas: 
 
 - `POI_visits`: POI-level visits for each user (identified by their *Flickr* NSID), categorised by city, then ordered chronologically. Each visit contains the POI (uniquely identified by its OpenStreetMap object type and ID), start and end timestamps, and number of photos taken. If a user has travelled to a given city multiple times, these trips are *not* separated. All POI visits in a city are shown chronologically in the same list, regardless of the time interval between them.  
   - The OpenStreetMap webpage for each POI can be visited by prepending its unique identifier with ` openstreetmap.org/`.
