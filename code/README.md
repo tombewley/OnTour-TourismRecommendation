@@ -1,5 +1,5 @@
 # 	On Tour: Code for Dataset Creation and Recommender Models
-This folder contains the code required to recreate the travel histories dataset from YFCC100M and OpenStreetMap, and deploy my recommender models on them. 
+This folder contains the code required to recreate the travel histories dataset from YFCC100M and OpenStreetMap, and deploy our recommender models on them. 
 
 ## Required Data
 The YFCC100M core dataset and Places expansion pack, both available from [here](https://multimediacommons.wordpress.com/yfcc100m-core-dataset/). They come in the form of Bzip2-compressed files.
