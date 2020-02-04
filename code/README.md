@@ -49,4 +49,4 @@ The numbered scripts (`1a`... `12b`) are intended to be run in order; each depen
 ## Citation
 If you use any of the code or data contained in this repository, please cite the following paper:
 
-[COMING SOON]
+**Bewley, Tom, and Iván Palomares Carrascosa. "On Tour: Harnessing Social Tourism Data for City and Point of Interest Recommendation." *Proceedings DSRS-Turing’19. London, 21-22nd Nov, 2019* (2019).**
