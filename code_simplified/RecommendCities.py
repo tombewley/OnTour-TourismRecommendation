@@ -4,7 +4,7 @@ import json
 import numpy as np
 import os
 from scipy.stats import entropy
-from numpy.linalg import norm
+from numpy.linalg import norm 
 
 
 GROUP_SIZE = 5          # The size of the tourist group to recommend for. 
