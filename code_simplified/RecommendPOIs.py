@@ -8,7 +8,7 @@ from datetime import timedelta
 from collections import Counter
 
 
-MIN_PREVIOUS_POIS = 20                     # The minimum number of visited POIs for the target tourist.
+MIN_PREVIOUS_POIS = 20
 
 MIN_VISITS_PER_CATEGORY = 500              # For a category to be used for preference calculations (global figure).
 MIN_VISITORS_PER_POI = 20                  # For a POI to be considered by the recommender. Here we use unique *visitors* not *visits*.
