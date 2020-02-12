@@ -5,7 +5,7 @@ In this MSc thesis project, we introduce a variety of data-driven models for rec
 This repository has three folders:
 
 - **code**: All code required to recreate the travel histories dataset from YFCC100M and OpenStreetMap, and deploy our recommender models on them. 
-- **code_simplified**: Heavily-simplified versions of the best-performing code for both city and point-of-interest recommendation. These should be good starting points for future work.
+- **code_simplified**: Heavily-condensed versions of the best-performing code for both city and point-of-interest recommendation. These should be good starting points for future work.
 - **dataset**: The travel histories dataset itself, in `JSON` format.
 
 ## Citation
