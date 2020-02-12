@@ -29,3 +29,98 @@ def computePreferenceSimilarity(P, Q):
 
 # ================================================================================================================
 # Tools for POI recommendation.
+
+
+def timeDifferenceToWeight(dt, ζ, η):
+    '''Used to compute the w_hist feature.'''
+    return ζ + ((1-ζ) * 2**(-np.abs(dt) / η))
+
+
+def longlatToDistance(l1, l2):
+    '''Euclidean distance approximation. Courtesy of:
+       https://math.stackexchange.com/questions/29157/how-do-i-convert-the-distance-between-two-lat-long-points-into-feet-meters'''
+    longs = np.array([float(l) for l in [l1[0],l2[0]]]) * np.pi/180
+    lats = np.array([float(l) for l in [l1[1],l2[1]]]) * np.pi/180
+    return 6371*1000*( ((lats[1]-lats[0])**2) + ((np.cos((lats[0]+lats[1])/2)**2)*((longs[1]-longs[0])**2)) )**0.5
+
+
+class NeuralNetwork:
+    '''A basic feedforward neural network.'''
+
+    def __init__(self, in_size, hidden_layers, out_size, weights = None, hidden_activation='logistic', output_activation=None):
+
+        self.layers = [in_size] + hidden_layers + [out_size]
+        
+        # If weights not provided, initialise them randomly with a nan on the 0th layer (makes indexing easier).
+        if weights == None:
+            self.weights = [np.nan]
+            for layer in range(1,len(self.layers)):
+                # Append a randomised numpy array (variance 1/3) of dims (len(layer l) * (len(layer l - 1) + 1 {for bias}).
+                self.weights.append(np.random.normal(0, 1/np.sqrt(3), [self.layers[layer],(self.layers[layer - 1] + 1)]))
+
+        # **ADD SHAPE VALIDATION
+        else: self.weights = weights
+
+        # Store activation methods.
+        self.hidden_activation = hidden_activation
+        self.output_activation = output_activation
+
+        # Store input/output size and layer topology.
+        self.in_size = in_size; self.out_size = out_size
+
+    def activate(self, z, a): 
+        if a == 'logistic': return 1 / (1 + np.exp(-z))
+        elif a == 'tanh': return np.tanh(z)
+        elif a == 'relu': return np.maximum(z, 0.)
+        #elif a == 'softmax': return
+        elif a == None: return z
+
+    def activate_diff(self, z, a):
+        if a == 'logistic': return self.activate(z, a) * (1 - self.activate(z, a))
+        elif a == 'relu': return (z > 0).astype(int)
+
+        elif a == None: return np.ones_like(z) 
+        else: print('Diff for '+a+' not yet implemented!') 
+
+    def predict(self, features, internals=False):
+        if len(features) != self.in_size: print('Feature vector '+str(features)+' has wrong dims for network!'); return
+        z = [np.nan]; a = [features + [1]]
+        for layer in range(1,len(self.layers)-1):
+            z.append(np.sum(a[-1] * self.weights[layer],axis=1))
+            a.append(np.append(self.activate(z[-1], self.hidden_activation),1))
+        z.append(np.sum(a[-1] * self.weights[layer+1],axis=1))
+        y = self.activate(z[-1], self.output_activation)
+
+        if self.out_size == 1: y = y[0]
+        if internals: return y, z, a
+        else: return y
+
+    def batch_predict(self, batch, internals=False):
+        results = []
+        for x in batch: results.append(self.predict(x), internals)
+        return results
+
+    def update_weights(self, features, error, rate):
+
+        # **CLEAN UP ALL THE RESHAPING STUFF
+
+        _, z, a = self.predict(features, internals=True)
+        if type(error) == np.float64 or type(error) == float: error = [error] # Convert to list if single output neuron.
+        dJ_by_da = np.array(error).reshape(-1,1)
+
+        self.next_weights = self.weights[:]
+        for layer in reversed(range(1,len(self.layers))):
+
+            # Differential of activation function.
+            if layer == len(self.layers)-1: da_by_dz = self.activate_diff(z[layer], self.output_activation)
+            else: da_by_dz = self.activate_diff(z[layer], self.hidden_activation) 
+
+            # Update weights in this layer.
+            dJ_by_dz = da_by_dz.reshape(-1,1) * dJ_by_da
+            self.next_weights[layer] -= rate * (dJ_by_dz * a[layer-1])
+
+            # Then compute desired changes in activations of previous layer (excluding bias term).
+            if layer > 1: 
+                dJ_by_da = np.dot(np.transpose([x[:-1] for x in self.weights[layer]]), dJ_by_dz)
+
+        self.weights = self.next_weights[:]

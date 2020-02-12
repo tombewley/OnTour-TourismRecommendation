@@ -7,7 +7,7 @@ from scipy.stats import entropy
 from numpy.linalg import norm 
 
 
-GROUP_SIZE = 5          # The size of the tourist group to recommend for. 
+GROUP_SIZE = 3          # The size of the tourist group to recommend for. 
 MIN_CITIES_VISITED = 3  # The minimum number of visited cities for a tourist to be included in the model.
 NEIGHBOURHOOD_SIZE = 50 # Number of neighbours to use for collaborative filtering.
 
@@ -21,7 +21,7 @@ with open('../dataset/OnTour_TravelHistories.json', 'r') as f: data = json.load(
 all_cities = sorted(list(set(city for tourist_cities in data['city_photos'].values() for city in tourist_cities))) # Alphabetically-ordered list of cities.
 
 if not os.path.isfile('CityPreferences.json'): 
-    # Compute and store each tourist's preference for each city based on their photos taken there.
+    # Precompute and store each tourist's preference for each city based on their photos taken there.
     print('Precomputing city preferences...\n')
     total_num_photos = sum(number for tourist_cities in data['city_photos'].values() for number in tourist_cities.values())                                                                      # Total number of photos across the whole dataset.
     global_city_popularity = {city: sum(number for tourist_cities in data['city_photos'].values() for c, number in tourist_cities.items() if c == city)/total_num_photos for city in all_cities} # Proportion of photos taken in each city across the whole dataset.
