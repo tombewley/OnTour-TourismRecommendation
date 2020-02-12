@@ -8,20 +8,20 @@ from datetime import timedelta
 from collections import Counter
 
 
-MIN_PREVIOUS_POIS = 20
+MIN_PREVIOUS_POIS = 20                     # The minimum number of visited POIs for the target tourist.
 
-MIN_VISITS_PER_CATEGORY = 500    # For a category to be used for preference calculations (global figure).
-MIN_VISITORS_PER_POI = 20        # For a POI to be considered by the recommender. Here we use unique *visitors* not *visits*.
+MIN_VISITS_PER_CATEGORY = 500              # For a category to be used for preference calculations (global figure).
+MIN_VISITORS_PER_POI = 20                  # For a POI to be considered by the recommender. Here we use unique *visitors* not *visits*.
 
 # Model parameters.
-α = 100                          # Number of visits for w_pop = 0.5.
-β = 2000                         # Distance for w_prox = 0.5.
-ζ = 0.1                          # Asymptotic value of correlation as time separation goes to infinity.              
-η = 86400                        # Time in seconds for correlation = (1 + ζ) / 2. 
+α = 100                                    # Number of visits for w_pop = 0.5.
+β = 2000                                   # Distance for w_prox = 0.5.
+ζ = 0.1                                    # Asymptotic value of correlation as time separation goes to infinity.              
+η = 86400                                  # Time in seconds for correlation = (1 + ζ) / 2. 
 
-NEURAL_NETWORK_WEIGHTS = 'NNweights_6,6_a'
+NEURAL_NETWORK_WEIGHTS = 'NNweights_6,6_a' # Weights to use for scoring model. Worth experimenting with the several available.
 
-NUM_RECOMMENDATIONS_TO_SHOW = 20 # This is a maximum; fewer will be shown if this exceeds the number of popular POIs in the city.
+NUM_RECOMMENDATIONS_TO_SHOW = 20           # This is a maximum; fewer will be shown if this exceeds the number of popular POIs in the city.
 
 # -----------------------------------
 
